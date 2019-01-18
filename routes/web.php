@@ -11,12 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.main.app');
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::prefix('admin')->group(function () {
     
     // Authentication Routes
@@ -58,4 +52,8 @@ Route::prefix('user')->group(function () {
         Route::get('/', 'User\DashboardController@index')->name('user.dashboard');
         
     });
+});
+
+Route::get('/', function () {
+    return view('layouts.main.app');
 });

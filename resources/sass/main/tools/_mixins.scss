@@ -1,0 +1,50 @@
+//this is the "magic" function
+@function var($variable) {
+    @if ($css4) {
+        @return unquote('var(' + $variable + ')');
+    } @else {
+        @return map-get($fallback, $variable);
+    }
+}
+
+//the mixin temporally sets the $css4 variable to false, compiles the css3 fallback, then makes the variable true again and compiles the css4 code. It should contain properties that use css4 variables, otherwise there will be unnessesary duplication of properties.
+@mixin css4 {
+    @if ($css4) {
+        $css4-backup: $css4;
+        @if ($compatibility) {
+            $css4: false !global;
+
+            $classname: #{"body.novars"};
+            @at-root #{selector_nest(#{$classname}, &)} {
+                @content;
+            }
+            
+        }
+        $css4: true !global;
+        @content;
+        $css4: $css4-backup;
+    }
+    @else {
+        @content;
+    }
+}
+
+// Add percentage of white to a color
+@function tint($color, $percent){
+    @return mix(white, $color, $percent);
+}
+  
+// Add percentage of black to a color
+@function shade($color, $percent){
+    @return mix(black, $color, $percent);
+}
+
+// Grab a color from our map by simply calling `color(<ref>)`.
+@function color-brand($key) {
+    @if map-has-key($colors-brand, $key) {
+      @return map-get($colors-brand, $key);
+    }
+  
+    @warn "Unknown `#{$key}` in $colors-brand";
+    @return null;
+}

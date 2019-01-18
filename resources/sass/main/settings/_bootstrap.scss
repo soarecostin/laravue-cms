@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+
+// Body
+$body-bg: #f5f8fa;
+
+// Typography
+$font-family-default:
+    // Safari for OS X and iOS (San Francisco)
+    -apple-system,
+    // Chrome < 56 for OS X (San Francisco)
+    BlinkMacSystemFont,
+    // Windows
+    "Segoe UI",
+    // Android
+    "Roboto",
+    // Basic web fallback
+    "Helvetica Neue", Arial, sans-serif,
+    // Emoji fonts
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+
+$font-family-base:
+    "Poppins",
+    // Safari for OS X and iOS (San Francisco)
+    -apple-system,
+    // Chrome < 56 for OS X (San Francisco)
+    BlinkMacSystemFont,
+    // Windows
+    "Segoe UI",
+    // Android
+    "Roboto",
+    // Basic web fallback
+    "Helvetica Neue", Arial, sans-serif,
+    // Emoji fonts
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+$theme-colors: (
+    'primary': #5867dd,
+    'dark': #242939,
+    'success': #1dc9b7,
+    'warning': #ffb822,
+    'info': #5578eb,
+    'danger': #fd397a,
+);

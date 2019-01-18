@@ -1,0 +1,37 @@
+$css4: true;
+$compatibility: true;
+
+$colors-brand: (
+    'main': #242939,
+    'secondary': #5867dd,
+    
+    'gradient-from': rgba(63,64,121,.95),
+    'gradient-to': rgba(63,64,121,.65),
+
+    'gradient-icon-from': rgb(185, 75, 130),
+    'gradient-icon-to': rgb(92, 76, 130),
+) !default;
+
+@if ($css4) {
+    body {
+        --main-color: #{map-get($colors-brand, 'main')};
+        --secondary-color: #{map-get($colors-brand, 'secondary')};
+
+        --gradient-from: #{map-get($colors-brand, 'gradient-from')};
+        --gradient-to: #{map-get($colors-brand, 'gradient-to')};
+
+        --gradient-icon-from: #{map-get($colors-brand, 'gradient-icon-from')};
+        --gradient-icon-to: #{map-get($colors-brand, 'gradient-icon-to')};
+    }
+}
+
+$fallback: (
+    --main-color: map-get($colors-brand, 'main'),
+    --secondary-color: map-get($colors-brand, 'secondary'),
+
+    --gradient-from: map-get($colors-brand, 'gradient-from'),
+    --gradient-to: map-get($colors-brand, 'gradient-to'),
+    
+    --gradient-icon-from: map-get($colors-brand, 'gradient-icon-from'),
+    --gradient-icon-to: map-get($colors-brand, 'gradient-icon-to'),
+)

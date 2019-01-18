@@ -1,0 +1,14 @@
+.main-container {
+    background-color: #f2f4f8;
+    padding-top: 66px;
+
+    @include media-breakpoint-up(md) {
+        padding-top: 76px;
+    }
+}
+
+.spacing--container {
+    padding-bottom: 4rem;
+    padding-top: 10px;
+    position: relative;
+}

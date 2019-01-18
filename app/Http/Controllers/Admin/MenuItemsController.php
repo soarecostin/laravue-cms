@@ -45,10 +45,10 @@ class MenuItemsController extends ResourceController
         $menuId = null;
         $rootMenuItems = [];
         if (!is_null($entity)) {
-            if (get_class($entity) == 'App\Menu') {
+            if ($entity instanceof \App\Menu) {
                 $menuId = $entity->id;
             }
-            if (get_class($entity) == 'App\MenuItem') {
+            if ($entity instanceof \App\MenuItem) {
                 $menuId = $entity->menu->id;
             }
         }

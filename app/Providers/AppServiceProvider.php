@@ -78,15 +78,15 @@ class AppServiceProvider extends ServiceProvider
             return $nav;
         }
         foreach ($nav as $navKey => $navItem) {
-            if (!empty($navItem['gates'])) {
-                $denied = false;
-                foreach ($navItem['gates'] as $gate) {
-                    if (Gate::denies($gate)) {
-                        $denied = true;
-                    }
-                }
-                if ($denied) {
+            if (empty($navItem['gates'])) {
+                continue;
+            }
+
+            foreach ($navItem['gates'] as $gate) {
+                if (Gate::denies($gate)) {
                     unset($nav[$navKey]);
+                    
+                    continue 2;
                 }
             }
         }

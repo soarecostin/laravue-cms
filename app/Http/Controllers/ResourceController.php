@@ -20,7 +20,7 @@ abstract class ResourceController extends Controller
      * Display a listing of the resource.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $parentEntity
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function index(Model $parentEntity = null)
     {
@@ -44,7 +44,7 @@ abstract class ResourceController extends Controller
      * Show the form for creating a new resource.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $parentEntity
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function create(Model $parentEntity = null)
     {
@@ -69,7 +69,7 @@ abstract class ResourceController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $parentEntity
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Model $parentEntity = null)
     {
@@ -87,7 +87,7 @@ abstract class ResourceController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $entity
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function edit(Model $entity)
     {
@@ -110,7 +110,7 @@ abstract class ResourceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $entity
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Model $entity)
     {
@@ -132,7 +132,7 @@ abstract class ResourceController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \Illuminate\Database\Eloquent\Model  $entity
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Model $entity, Request $request)
     {
@@ -189,7 +189,7 @@ abstract class ResourceController extends Controller
      * Get route to redirect to after the resource is created
      *
      * @param  \Illuminate\Database\Eloquent\Model  $entity
-     * @return \Illuminate\Routing\Route
+     * @return string
      */
     protected function redirectAfterCreate(Model $parentEntity = null)
     {
@@ -201,7 +201,7 @@ abstract class ResourceController extends Controller
      * Get route to redirect to after the resource is updated
      *
      * @param  \Illuminate\Database\Eloquent\Model  $entity
-     * @return \Illuminate\Routing\Route
+     * @return string
      */
     protected function redirectAfterUpdate(Model $entity = null)
     {

@@ -72,7 +72,7 @@ class PagesController extends ResourceController
 
         $datatable = DatatablesService::draw($entities, $this->settings, $this->datatables);
         
-        $datatable->editColumn('title', function ($entity) {
+        $datatable->editColumn('title', function($entity) {
             if (!is_null($entity->parent_id)) {
                 return '<i class="fas fa-angle-double-right pl-3 pr-2 align-middle"></i>' . $entity->title;
             }

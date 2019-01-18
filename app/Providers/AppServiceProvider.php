@@ -39,19 +39,19 @@ class AppServiceProvider extends ServiceProvider
     
     protected function viewComposers(Request $request)
     {
-        view()->composer('admin.layouts.app', function ($view) {
+        view()->composer('admin.layouts.app', function($view) {
             $nav = config('admin.nav');
             $nav = $this->filterDeniedItems($nav, 'admin');
             $view->with('nav', $nav);
         });
 
-        view()->composer('layouts.user.partials.topnav', function ($view) {
+        view()->composer('layouts.user.partials.topnav', function($view) {
             $nav = config('user.nav');
             $nav = $this->filterDeniedItems($nav, 'web');
             $view->with('nav', $nav);
         });
 
-        view()->composer('layouts.main.partials.topnav', function ($view) {
+        view()->composer('layouts.main.partials.topnav', function($view) {
             $menu = Menu::select('id', 'title')
                         ->where('position', 'header')
                         ->first();                            
@@ -85,7 +85,7 @@ class AppServiceProvider extends ServiceProvider
             foreach ($navItem['gates'] as $gate) {
                 if (Gate::denies($gate)) {
                     unset($nav[$navKey]);
-                    
+
                     continue 2;
                 }
             }
@@ -107,16 +107,16 @@ class AppServiceProvider extends ServiceProvider
     
     protected function explicitRouteBindings()
     {
-        Route::bind('page', function ($value) {
+        Route::bind('page', function($value) {
             return \App\Page::where('id', $value)->firstOrFail();
         });
-        Route::bind('pageSection', function ($value) {
+        Route::bind('pageSection', function($value) {
             return \App\PageSection::where('id', $value)->firstOrFail();
         });
-        Route::bind('menu', function ($value) {
+        Route::bind('menu', function($value) {
             return \App\Menu::where('id', $value)->firstOrFail();
         });
-        Route::bind('menuItem', function ($value) {
+        Route::bind('menuItem', function($value) {
             return \App\MenuItem::where('id', $value)->firstOrFail();
         });
     }

@@ -32,8 +32,8 @@ class PageSectionsController extends ResourceController
 
     protected $datatables = [
         'fields' => [
-            [ 'key' => 'template', 'class' => 'col d-flex align-items-center' ],
-            [ 'key' => 'settings', 'class' => 'col-3 ml-auto d-flex align-items-center justify-content-center' ],
+            ['key' => 'template', 'class' => 'col d-flex align-items-center'],
+            ['key' => 'settings', 'class' => 'col-3 ml-auto d-flex align-items-center justify-content-center'],
         ],
     ];
 
@@ -50,7 +50,7 @@ class PageSectionsController extends ResourceController
 
     protected function saveRoutine(Model $entity, Model $parentEntity = null)
     {
-        $templateData = collect(request()->all())->filter(function ($value, $key) {
+        $templateData = collect(request()->all())->filter(function($value, $key) {
             return substr($key, 0, 4) == "tpl_";
         });
         
@@ -80,7 +80,7 @@ class PageSectionsController extends ResourceController
                             ->orderBy('sort_order')
                             ->get();
         
-        $itemsVue = $items->map(function ($item) {
+        $itemsVue = $items->map(function($item) {
             return [
                 'id' => $item->id,
                 'title' => $item->title,

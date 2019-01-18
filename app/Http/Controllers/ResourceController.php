@@ -115,7 +115,7 @@ abstract class ResourceController extends Controller
     public function update(Model $entity)
     {
         if (isset($this->rules['email'])) {
-            $this->rules['email'] .= ','.$this->excludeIdFromEmailCheck($entity); // Exclude the current resource from the query
+            $this->rules['email'] .= ',' . $this->excludeIdFromEmailCheck($entity); // Exclude the current resource from the query
         }
 
         $this->validate(request(), $this->rules);
@@ -138,7 +138,7 @@ abstract class ResourceController extends Controller
     {
         $this->deleteRoutine($entity);
         
-        $request->session()->flash('message', $this->settings['resource'].' deleted successfully');
+        $request->session()->flash('message', $this->settings['resource'] . ' deleted successfully');
         
         return response()->json(true);
     }

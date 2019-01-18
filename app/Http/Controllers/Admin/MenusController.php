@@ -28,15 +28,15 @@ class MenusController extends ResourceController
     protected $datatables = [
         'select' => ['id', 'title', 'position'],
         'fields' => [
-            [ 'key' => 'id', 'sortable' => true ],
-            [ 'key' => 'title', 'sortable' => false ],
-            [ 'key' => 'position', 'sortable' => false, 'label' => 'Placement' ],
-            [ 'key' => 'settings', 'sortable' => false ],
+            ['key' => 'id', 'sortable' => true],
+            ['key' => 'title', 'sortable' => false],
+            ['key' => 'position', 'sortable' => false, 'label' => 'Placement'],
+            ['key' => 'settings', 'sortable' => false],
         ],
         'settings' => [
-            [ 'type' => 'children', 'title' => 'Menu Items' ],
-            [ 'type' => 'edit' ],
-            [ 'type' => 'delete' ],
+            ['type' => 'children', 'title' => 'Menu Items'],
+            ['type' => 'edit'],
+            ['type' => 'delete'],
         ]
     ];
 

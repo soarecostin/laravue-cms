@@ -8,7 +8,7 @@ class DatatablesService
 {
     public static function hasOrder()
     {
-        if (request()->has('sortBy') && !is_null(request('sortBy')) && request('sortBy') != 'null' ) {
+        if (request()->has('sortBy') && !is_null(request('sortBy')) && request('sortBy') != 'null') {
             return true;
         }
         return false;
@@ -16,7 +16,7 @@ class DatatablesService
 
     public static function order($query)
     {
-        if (request()->has('sortBy') && !is_null(request('sortBy')) && request('sortBy') != 'null' ) {
+        if (request()->has('sortBy') && !is_null(request('sortBy')) && request('sortBy') != 'null') {
             $sortBy = 'asc';
             if (request()->has('sortDesc') && request('sortDesc') == 'true') {
                 $sortBy = 'desc';
@@ -51,11 +51,11 @@ class DatatablesService
         }
         
         $datatables = Datatables::of($entities);
-        $datatables = $datatables->order(function ($query) {
+        $datatables = $datatables->order(function($query) {
             return self::order($query);
         });
         
-        $datatables->addColumn('settings', function ($entity) use ($settings, $data) {
+        $datatables->addColumn('settings', function($entity) use ($settings, $data) {
             if (!$data['settings']) {
                 return;
             }
@@ -74,6 +74,8 @@ class DatatablesService
                 continue;
             }
             
+            $disabled = isset($buttonDetails['disabled_attr']) ? $entity->{$buttonDetails['disabled_attr']} : false;
+
             switch ($buttonDetails['type']) {
                 case 'switch':
                     $buttons[] = [
@@ -83,7 +85,7 @@ class DatatablesService
                             'off' => route($settings['routePath'] . '.unpublish', [$entity->id])
                         ],
                         'value' => $entity->published,
-                        'disabled' => isset($buttonDetails['disabled_attr']) ? $entity->{$buttonDetails['disabled_attr']} : false,
+                        'disabled' => $disabled,
                     ];
                 break;
                 case 'children':
@@ -91,7 +93,7 @@ class DatatablesService
                         'icon' => $buttonDetails['icon'] ?? 'fas fa-bars',
                         'title' => $buttonDetails['title'] ?? '',
                         'variant' => $buttonDetails['variant'] ?? 'info',
-                        'url' => route($settings['routePath'] . ".".($buttonDetails['url'] ?? 'items').".index", [$entity->id]),
+                        'url' => route($settings['routePath'] . "." . ($buttonDetails['url'] ?? 'items') . ".index", [$entity->id]),
                     ];
                 break;
                 case 'edit':
@@ -101,14 +103,14 @@ class DatatablesService
                         'title' => $buttonDetails['title'] ?? 'Edit',
                         'variant' => 'primary',
                         'url' => route($settings['routePath'] . ".edit", [$entity->id]),
-                        'disabled' => isset($buttonDetails['disabled_attr']) ? $entity->{$buttonDetails['disabled_attr']} : false,
+                        'disabled' => $disabled,
                     ];
                 break;
                 case 'delete':
                     $buttons[] = [
                         'type' => 'delete',
                         'url' => route($settings['routePath'] . ".destroy", [$entity->id]),
-                        'disabled' => isset($buttonDetails['disabled_attr']) ? $entity->{$buttonDetails['disabled_attr']} : false,
+                        'disabled' => $disabled,
                     ];
                 break;
                 case 'show':
@@ -127,7 +129,7 @@ class DatatablesService
                         'icon' => $buttonDetails['icon'] ?? '',
                         'url' => $buttonDetails['url'] ?? '',
                         'variant' => $buttonDetails['variant'] ?? 'info',
-                        'disabled' => isset($buttonDetails['disabled_attr']) ? $entity->{$buttonDetails['disabled_attr']} : false,
+                        'disabled' => $disabled,
                     ];
                     
                     if (isset($buttonDetails['route'])) {

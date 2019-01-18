@@ -29,14 +29,14 @@ class MenuItemsController extends ResourceController
 
     protected $datatables = [
         'fields' => [
-            [ 'key' => 'title', 'sortable' => false, 'class' => 'd-flex align-items-center' ],
-            [ 'key' => 'url', 'sortable' => false ],
-            [ 'key' => 'settings', 'sortable' => false ],
+            ['key' => 'title', 'sortable' => false, 'class' => 'd-flex align-items-center'],
+            ['key' => 'url', 'sortable' => false],
+            ['key' => 'settings', 'sortable' => false],
         ],
         'settings' => [
-            [ 'type' => 'switch' ],
-            [ 'type' => 'edit' ],
-            [ 'type' => 'delete' ],
+            ['type' => 'switch'],
+            ['type' => 'edit'],
+            ['type' => 'delete'],
         ]
     ];
 
@@ -52,7 +52,7 @@ class MenuItemsController extends ResourceController
                 $menuId = $entity->menu->id;
             }
         }
-        if ($menuId) {
+        if ($menuId != null) {
             $rootMenuItems = MenuItem::select('id', 'title')
                                 ->where('parent_id', NULL)
                                 ->where('menu_id', $menuId)
@@ -90,7 +90,7 @@ class MenuItemsController extends ResourceController
         
         $datatable = DatatablesService::draw($entities, $this->settings, $this->datatables);
         
-        $datatable->editColumn('title', function ($entity) {
+        $datatable->editColumn('title', function($entity) {
             if (!is_null($entity->parent_id)) {
                 return '<i class="fas fa-angle-double-right pl-3 pr-2 align-middle"></i>' . $entity->title;
             }

@@ -24,6 +24,31 @@ Route::prefix('admin')->group(function () {
         // Admin Dashboard
         Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
         
+        
+        // Menus (navbars)
+        Route::get('/menus/draw', 'Admin\MenusController@draw')->name('admin.menus.draw');
+        Route::resource('menus', 'Admin\MenusController')->except(['show'])->names([
+            'index' => 'admin.menus.index',
+            'create' => 'admin.menus.create',
+            'store' => 'admin.menus.store',
+            'edit' => 'admin.menus.edit',
+            'update' => 'admin.menus.update',
+            'destroy' => 'admin.menus.destroy'
+        ]);
+        
+        // Menu Items (navbars)
+        Route::get('/menus/{menu}/items/draw', 'Admin\MenuItemsController@draw')->name('admin.menus.items.draw');
+        Route::get('/menus/items/{menuItem}/publish', 'Admin\MenuItemsController@on')->name('admin.menus.items.publish');
+        Route::get('/menus/items/{menuItem}/unpublish', 'Admin\MenuItemsController@off')->name('admin.menus.items.unpublish');
+        
+        Route::get('/menus/{menu}/items', 'Admin\MenuItemsController@index')->name('admin.menus.items.index');
+        Route::get('/menus/{menu}/items/create', 'Admin\MenuItemsController@create')->name('admin.menus.items.create');
+        Route::post('menus/{menu}/items', 'Admin\MenuItemsController@store')->name('admin.menus.items.store');
+        Route::get('/menus/items/{menuItem}/edit', 'Admin\MenuItemsController@edit')->name('admin.menus.items.edit');
+        Route::put('/menus/items/{menuItem}', 'Admin\MenuItemsController@update')->name('admin.menus.items.update');
+        Route::delete('/menus/items/{menuItem}', 'Admin\MenuItemsController@destroy')->name('admin.menus.items.destroy');
+        
+
     });
 });
 

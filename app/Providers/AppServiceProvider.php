@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->viewComposers($request);
         $this->registerBladeComponents();
+        $this->explicitRouteBindings();
     }
 
     /**
@@ -82,5 +84,15 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('components.form.wysywig', 'wysywig');
         Blade::component('components.form.file', 'file');
         Blade::component('components.form.radio', 'radio');
+    }
+    
+    protected function explicitRouteBindings()
+    {
+        Route::bind('menu', function ($value) {
+            return \App\Menu::where('id', $value)->firstOrFail();
+        });
+        Route::bind('menuItem', function ($value) {
+            return \App\MenuItem::where('id', $value)->firstOrFail();
+        });
     }
 }

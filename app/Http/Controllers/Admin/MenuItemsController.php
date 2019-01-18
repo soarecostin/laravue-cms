@@ -9,7 +9,7 @@ use App\Services\DatatablesService;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\ResourceController;
 
-class MenuItemsController extends Controller
+class MenuItemsController extends ResourceController
 {
     use Publishable;
 

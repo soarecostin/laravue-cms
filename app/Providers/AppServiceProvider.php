@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Menu;
+use App\MenuItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
@@ -47,6 +49,23 @@ class AppServiceProvider extends ServiceProvider
             $nav = config('user.nav');
             $nav = $this->filterDeniedItems($nav, 'web');
             $view->with('nav', $nav);
+        });
+
+        view()->composer('layouts.main.partials.topnav', function ($view) {
+            $menu = Menu::select('id', 'title')
+                        ->where('position', 'header')
+                        ->first();                            
+            
+            $menuItems = collect([]);
+            if ($menu) {
+                $menuItems = MenuItem::select(['id', 'title', 'url', 'published', 'parent_id'])
+                            ->where('published', 1)
+                            ->where('menu_id', $menu->id)
+                            ->defaultOrder()
+                            ->get();
+            }
+
+            $view->with('menuItems', $menuItems);
         });
     }
     

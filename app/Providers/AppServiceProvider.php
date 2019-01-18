@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -19,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         $this->viewComposers($request);
+        $this->registerBladeComponents();
     }
 
     /**
@@ -68,5 +70,17 @@ class AppServiceProvider extends ServiceProvider
             }
         }
         return $nav;
+    }
+    
+    protected function registerBladeComponents()
+    {
+        // Aliasing Components
+        Blade::component('components.form.input', 'input');
+        Blade::component('components.form.checkbox', 'checkbox');
+        Blade::component('components.form.selectbox', 'selectbox');
+        Blade::component('components.form.textarea', 'textarea');
+        Blade::component('components.form.wysywig', 'wysywig');
+        Blade::component('components.form.file', 'file');
+        Blade::component('components.form.radio', 'radio');
     }
 }

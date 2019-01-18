@@ -24,6 +24,32 @@ Route::prefix('admin')->group(function () {
         // Admin Dashboard
         Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
         
+        // Pages
+        Route::get('/pages/draw', 'Admin\PagesController@draw')->name('admin.pages.draw');
+        Route::get('/pages/{page}/publish', 'Admin\PagesController@on')->name('admin.pages.publish');
+        Route::get('/pages/{page}/unpublish', 'Admin\PagesController@off')->name('admin.pages.unpublish');
+        Route::resource('pages', 'Admin\PagesController')->except(['show'])->names([
+            'index' => 'admin.pages.index',
+            'create' => 'admin.pages.create',
+            'store' => 'admin.pages.store',
+            'edit' => 'admin.pages.edit',
+            'update' => 'admin.pages.update',
+            'destroy' => 'admin.pages.destroy'
+        ]);
+        
+        // Page Sections
+        Route::get('/pages/{page}/sections/draw', 'Admin\PageSectionsController@draw')->name('admin.pages.sections.draw');
+        Route::get('/pages/sections/{pageSection}/publish', 'Admin\PageSectionsController@on')->name('admin.pages.sections.publish');
+        Route::get('/pages/sections/{pageSection}/unpublish', 'Admin\PageSectionsController@off')->name('admin.pages.sections.unpublish');
+        Route::post('/pages/sections/{pageSection}/save-order', 'Admin\PageSectionsController@saveOrder')->name('admin.pages.sections.saveOrder');
+        
+        Route::get('/pages/{page}/sections', 'Admin\PageSectionsController@index')->name('admin.pages.sections.index');
+        Route::get('/pages/{page}/sections/create', 'Admin\PageSectionsController@create')->name('admin.pages.sections.create');
+        Route::post('/pages/{page}/sections', 'Admin\PageSectionsController@store')->name('admin.pages.sections.store');
+        Route::get('/pages/sections/{pageSection}/edit', 'Admin\PageSectionsController@edit')->name('admin.pages.sections.edit');
+        Route::put('/pages/sections/{pageSection}', 'Admin\PageSectionsController@update')->name('admin.pages.sections.update');
+        Route::delete('/pages/sections/{pageSection}', 'Admin\PageSectionsController@destroy')->name('admin.pages.sections.destroy');
+        
         
         // Menus (navbars)
         Route::get('/menus/draw', 'Admin\MenusController@draw')->name('admin.menus.draw');

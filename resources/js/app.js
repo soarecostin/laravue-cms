@@ -12,10 +12,13 @@ window.BootstrapVue = require('bootstrap-vue');
 
 import ToggleButton from 'vue-js-toggle-button';
 import VueScrollTo from 'vue-scrollto';
+import draggable from 'vuedraggable'; //admin use only
 
 Vue.use(BootstrapVue);
 Vue.use(ToggleButton);
 Vue.use(VueScrollTo);
+
+Vue.component('draggable', draggable); //admin only
 
 /**
  * The following block of code may be used to automatically register your

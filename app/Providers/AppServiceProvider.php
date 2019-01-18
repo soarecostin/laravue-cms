@@ -88,6 +88,12 @@ class AppServiceProvider extends ServiceProvider
     
     protected function explicitRouteBindings()
     {
+        Route::bind('page', function ($value) {
+            return \App\Page::where('id', $value)->firstOrFail();
+        });
+        Route::bind('pageSection', function ($value) {
+            return \App\PageSection::where('id', $value)->firstOrFail();
+        });
         Route::bind('menu', function ($value) {
             return \App\Menu::where('id', $value)->firstOrFail();
         });

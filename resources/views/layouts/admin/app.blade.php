@@ -76,7 +76,7 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}"></script>
 
-        <script src="{{ asset('/js/ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('_admin/js/ckeditor/ckeditor.js') }}"></script>
         
         <script type="text/javascript">
             Vue.component('back-to-top', {

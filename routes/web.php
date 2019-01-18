@@ -105,6 +105,5 @@ Route::prefix('user')->group(function () {
     });
 });
 
-Route::get('/', function () {
-    return view('layouts.main.app');
-});
+//Catch all dynamic pages (place at the very bottom)
+Route::get('/{slug?}', 'PageController@index')->where('slug', '([A-Za-z0-9\-\/]*)');

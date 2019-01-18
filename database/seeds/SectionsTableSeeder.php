@@ -20,5 +20,69 @@ class SectionsTableSeeder extends Seeder
             'template_name' => '',
             'fields' => '',
         ]);
+
+        App\Section::create([
+            'id' => 2,
+            'section_type_name' => 'cta',
+            'title' => 'Call to action 16',
+            'thumbnail' => '/img/blocks/cta-16.png',
+            'template_name' => 'call-to-action-16',
+            'fields' => json_encode([
+                'fields' => [
+                    [
+                        'type' => 'input',
+                        'inputType' => 'text',
+                        'label' => 'Title',
+                        'model' => 'tpl_title',
+                        'required' => true,
+                        'inputName' => 'tpl_title',
+                        'placeholder' => 'Title'
+                    ],
+                    [
+                        'type' => 'select',
+                        'label' => 'Image',
+                        'model' => 'tpl_image',
+                        'inputName' => 'tpl_image',
+                        'default' => 'blue',
+                        'values' => [
+                            [
+                                'id' => 'blue',
+                                'name' =>'Blue'
+                            ],
+                            [
+                                'id' => 'purple',
+                                'name' => 'Purple'
+                            ],
+                            [
+                                'id' => 'red',
+                                'name' => 'Red'
+                            ],
+                            [
+                                'id' => 'yellow',
+                                'name' => 'Yellow'
+                            ],
+                        ]
+                    ],
+                    [
+                        'type' => 'input',
+                        'inputType' => 'text',
+                        'label' => 'Button label',
+                        'model' => 'tpl_btn_label',
+                        'required' => true,
+                        'inputName' => 'tpl_btn_label',
+                        'placeholder' => 'Button text'
+                    ],
+                    [
+                        'type' => 'input',
+                        'inputType' => 'text',
+                        'label' => 'Button link',
+                        'model' => 'tpl_btn_url',
+                        'required' => true,
+                        'inputName' => 'tpl_btn_url',
+                        'placeholder' => '#'
+                    ]
+                ]
+            ]),
+        ]);
     }
 }

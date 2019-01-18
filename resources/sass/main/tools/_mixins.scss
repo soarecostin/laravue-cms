@@ -48,3 +48,14 @@
     @warn "Unknown `#{$key}` in $colors-brand";
     @return null;
 }
+
+@mixin font-smoothing($value: false) {
+    @if $value {
+      -webkit-font-smoothing:  antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+      -webkit-font-smoothing:  subpixel-antialiased;
+      -moz-osx-font-smoothing: auto;
+    }
+}

@@ -22,6 +22,6 @@ class PageController extends Controller
             ]);
         }
         
-        return abort(404);
+        abort(404);
     }
 }

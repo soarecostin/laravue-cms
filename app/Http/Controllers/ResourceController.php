@@ -24,7 +24,7 @@ abstract class ResourceController extends Controller
      */
     public function index(Model $parentEntity = null)
     {
-        if (!is_null($this->filters)) {
+        if (!empty($this->filters)) {
             FilterTable::init($this->filters);
         }
 
@@ -76,7 +76,7 @@ abstract class ResourceController extends Controller
         $this->validate(request(), $this->rules);
         
         $entity = new $this->settings['model'];
-        $entity = $this->saveRoutine($entity, $parentEntity);
+        $this->saveRoutine($entity, $parentEntity);
         
         return redirect(
             $this->redirectAfterCreate($parentEntity)

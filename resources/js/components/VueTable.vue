@@ -58,11 +58,6 @@
                                 v-on:table-stop-loading="busy = false">
                             </toggle-btn>
 
-                            <group-btn 
-                                v-bind="btn"
-                                v-else-if="btn.type == 'group'">
-                            </group-btn>
-
                             <generic-btn 
                                 v-bind="btn"
                                 v-else>
@@ -91,7 +86,6 @@
 import DeleteBtn from './buttons/DeleteBtn.vue'
 import ToggleBtn from './buttons/ToggleBtn.vue'
 import GenericBtn from './buttons/GenericBtn.vue'
-import GroupBtn from './buttons/GroupBtn.vue'
 
 export default {
     name: "vue-table",
@@ -99,8 +93,7 @@ export default {
     components: {
         DeleteBtn,
         ToggleBtn,
-        GenericBtn,
-        GroupBtn
+        GenericBtn
     },
     data () {
         return {

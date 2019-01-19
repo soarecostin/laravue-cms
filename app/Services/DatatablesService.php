@@ -75,76 +75,85 @@ class DatatablesService
             }
             
             $disabled = isset($buttonDetails['disabled_attr']) ? $entity->{$buttonDetails['disabled_attr']} : false;
-
-            switch ($buttonDetails['type']) {
-                case 'switch':
-                    $buttons[] = [
-                        'type' => 'switch',
-                        'urls' => [
-                            'on' => route($settings['routePath'] . '.publish', [$entity->id]),
-                            'off' => route($settings['routePath'] . '.unpublish', [$entity->id])
-                        ],
-                        'value' => $entity->published,
-                        'disabled' => $disabled,
-                    ];
-                break;
-                case 'children':
-                    $buttons[] = [
-                        'icon' => $buttonDetails['icon'] ?? 'fas fa-bars',
-                        'title' => $buttonDetails['title'] ?? '',
-                        'variant' => $buttonDetails['variant'] ?? 'info',
-                        'url' => route($settings['routePath'] . "." . ($buttonDetails['url'] ?? 'items') . ".index", [$entity->id]),
-                    ];
-                break;
-                case 'edit':
-                    $buttons[] = [
-                        'type' => 'edit',
-                        'icon' => 'fas fa-pencil-alt',
-                        'title' => $buttonDetails['title'] ?? 'Edit',
-                        'variant' => 'primary',
-                        'url' => route($settings['routePath'] . ".edit", [$entity->id]),
-                        'disabled' => $disabled,
-                    ];
-                break;
-                case 'delete':
-                    $buttons[] = [
-                        'type' => 'delete',
-                        'url' => route($settings['routePath'] . ".destroy", [$entity->id]),
-                        'disabled' => $disabled,
-                    ];
-                break;
-                case 'show':
-                    $buttons[] = [
-                        'type' => 'show',
-                        'icon' => 'far fa-eye',
-                        'title' => $buttonDetails['title'] ?? 'Show',
-                        'variant' => 'primary',
-                        'target' => $buttonDetails['target'] ?? '',
-                        'url' => route($settings['routePath'] . '.show', [$entity->id]),
-                    ];
-                break;
-                case 'custom':
-                    $data = [
-                        'title' => $buttonDetails['title'] ?? '',
-                        'icon' => $buttonDetails['icon'] ?? '',
-                        'url' => $buttonDetails['url'] ?? '',
-                        'variant' => $buttonDetails['variant'] ?? 'info',
-                        'disabled' => $disabled,
-                    ];
-                    
-                    if (isset($buttonDetails['route'])) {
-                        $data['url'] = route($settings['routePath'] . '.' . $buttonDetails['route'], [$entity->id]);
-                    }
-
-                    if (isset($buttonDetails['pill'])) {
-                        $data['pill'] = $entity->{$buttonDetails['pill']};
-                    }
-
-                    $buttons[] = $data;
-                break;
-            }
+            
+            $buttons[] = self::{'render' . ucfirst($buttonDetails['type']) . 'Btn'}($entity, $buttonDetails, $settings, $disabled);
         }
 
         return $buttons;
+    }
+    
+    protected static function renderSwitchBtn($entity, $buttonDetails, $settings, $disabled)
+    {
+        return [
+            'type' => 'switch',
+            'urls' => [
+                'on' => route($settings['routePath'] . '.publish', [$entity->id]),
+                'off' => route($settings['routePath'] . '.unpublish', [$entity->id])
+            ],
+            'value' => $entity->published,
+            'disabled' => $disabled,
+        ];
+    }
+    
+    protected static function renderChildrenBtn($entity, $buttonDetails, $settings, $disabled)
+    {
+        return [
+            'icon' => $buttonDetails['icon'] ?? 'fas fa-bars',
+            'title' => $buttonDetails['title'] ?? '',
+            'variant' => $buttonDetails['variant'] ?? 'info',
+            'url' => route($settings['routePath'] . "." . ($buttonDetails['url'] ?? 'items') . ".index", [$entity->id]),
+        ];
+    }
+    
+    protected static function renderEditBtn($entity, $buttonDetails, $settings, $disabled)
+    {
+        return [
+            'icon' => 'fas fa-pencil-alt',
+            'title' => $buttonDetails['title'] ?? 'Edit',
+            'variant' => 'primary',
+            'url' => route($settings['routePath'] . ".edit", [$entity->id]),
+            'disabled' => $disabled,
+        ];
+    }
+
+    protected static function renderDeleteBtn($entity, $buttonDetails, $settings, $disabled)
+    {
+        return [
+            'type' => 'delete',
+            'url' => route($settings['routePath'] . ".destroy", [$entity->id]),
+            'disabled' => $disabled,
+        ];
+    }
+
+    protected static function renderShowBtn($entity, $buttonDetails, $settings, $disabled)
+    {
+        return [
+            'icon' => 'far fa-eye',
+            'title' => $buttonDetails['title'] ?? 'Show',
+            'variant' => 'primary',
+            'target' => $buttonDetails['target'] ?? '',
+            'url' => route($settings['routePath'] . '.show', [$entity->id]),
+        ];
+    }
+    
+    protected static function renderCustomBtn($entity, $buttonDetails, $settings, $disabled)
+    {
+        $data = [
+            'icon' => $buttonDetails['icon'] ?? '',
+            'title' => $buttonDetails['title'] ?? '',
+            'variant' => $buttonDetails['variant'] ?? 'info',
+            'url' => $buttonDetails['url'] ?? '',
+            'disabled' => $disabled,
+        ];
+        
+        if (isset($buttonDetails['route'])) {
+            $data['url'] = route($settings['routePath'] . '.' . $buttonDetails['route'], [$entity->id]);
+        }
+
+        if (isset($buttonDetails['pill'])) {
+            $data['pill'] = $entity->{$buttonDetails['pill']};
+        }
+
+        return $data;
     }
 }

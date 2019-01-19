@@ -2055,7 +2055,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _buttons_DeleteBtn_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./buttons/DeleteBtn.vue */ "./resources/js/components/buttons/DeleteBtn.vue");
 /* harmony import */ var _buttons_ToggleBtn_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./buttons/ToggleBtn.vue */ "./resources/js/components/buttons/ToggleBtn.vue");
 /* harmony import */ var _buttons_GenericBtn_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buttons/GenericBtn.vue */ "./resources/js/components/buttons/GenericBtn.vue");
-/* harmony import */ var _buttons_GroupBtn_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./buttons/GroupBtn.vue */ "./resources/js/components/buttons/GroupBtn.vue");
 //
 //
 //
@@ -2142,12 +2141,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-
 
 
 
@@ -2157,8 +2150,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     DeleteBtn: _buttons_DeleteBtn_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     ToggleBtn: _buttons_ToggleBtn_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    GenericBtn: _buttons_GenericBtn_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    GroupBtn: _buttons_GroupBtn_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    GenericBtn: _buttons_GenericBtn_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -2260,7 +2252,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _buttons_DeleteBtn_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./buttons/DeleteBtn.vue */ "./resources/js/components/buttons/DeleteBtn.vue");
 /* harmony import */ var _buttons_ToggleBtn_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./buttons/ToggleBtn.vue */ "./resources/js/components/buttons/ToggleBtn.vue");
 /* harmony import */ var _buttons_GenericBtn_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buttons/GenericBtn.vue */ "./resources/js/components/buttons/GenericBtn.vue");
-/* harmony import */ var _buttons_GroupBtn_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./buttons/GroupBtn.vue */ "./resources/js/components/buttons/GroupBtn.vue");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 //
@@ -2346,12 +2337,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
-//
-//
-//
-//
-//
-
 
 
 
@@ -2361,8 +2346,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   components: {
     DeleteBtn: _buttons_DeleteBtn_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     ToggleBtn: _buttons_ToggleBtn_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    GenericBtn: _buttons_GenericBtn_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    GroupBtn: _buttons_GroupBtn_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    GenericBtn: _buttons_GenericBtn_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -2734,66 +2718,6 @@ __webpack_require__.r(__webpack_exports__);
     large: {
       type: [Boolean, String, Number],
       default: false
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/buttons/GroupBtn.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/buttons/GroupBtn.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['pill', 'buttons'],
-  methods: {
-    pleaseConfirm: function pleaseConfirm(key) {
-      this.$refs['confirm' + key][0].show();
-    },
-    handleOk: function handleOk(url) {
-      window.location.href = url;
     }
   }
 });
@@ -45444,25 +45368,15 @@ var render = function() {
                                                           }
                                                         }
                                                       })
-                                                    : btn.type == "group"
-                                                      ? _c(
-                                                          "group-btn",
-                                                          _vm._b(
-                                                            {},
-                                                            "group-btn",
-                                                            btn,
-                                                            false
-                                                          )
-                                                        )
-                                                      : _c(
+                                                    : _c(
+                                                        "generic-btn",
+                                                        _vm._b(
+                                                          {},
                                                           "generic-btn",
-                                                          _vm._b(
-                                                            {},
-                                                            "generic-btn",
-                                                            btn,
-                                                            false
-                                                          )
+                                                          btn,
+                                                          false
                                                         )
+                                                      )
                                               ],
                                               1
                                             )
@@ -45717,15 +45631,10 @@ var render = function() {
                                       }
                                     }
                                   })
-                                : btn.type == "group"
-                                  ? _c(
-                                      "group-btn",
-                                      _vm._b({}, "group-btn", btn, false)
-                                    )
-                                  : _c(
-                                      "generic-btn",
-                                      _vm._b({}, "generic-btn", btn, false)
-                                    )
+                                : _c(
+                                    "generic-btn",
+                                    _vm._b({}, "generic-btn", btn, false)
+                                  )
                           ],
                           1
                         )
@@ -45956,126 +45865,6 @@ var render = function() {
       _vm._v(" "),
       _vm.label ? _c("span", [_vm._v(_vm._s(_vm.label))]) : _vm._e()
     ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/buttons/GroupBtn.vue?vue&type=template&id=2bae3316&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/buttons/GroupBtn.vue?vue&type=template&id=2bae3316& ***!
-  \*******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-dropdown",
-        {
-          attrs: {
-            size: "sm",
-            dropup: false,
-            right: "",
-            "no-caret": "",
-            "toggle-class": "rounded",
-            boundary: "window"
-          }
-        },
-        [
-          _c("template", { slot: "button-content" }, [
-            _c("i", { staticClass: "fas fa-ellipsis-h fa-fw" }),
-            _vm._v(" "),
-            _vm.pill
-              ? _c(
-                  "span",
-                  {
-                    staticClass:
-                      "badge badge-pill badge-danger badge-pill--count"
-                  },
-                  [_vm._v(_vm._s(_vm.pill))]
-                )
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.buttons, function(btn, key) {
-            return _c(
-              "b-dropdown-item",
-              {
-                key: key,
-                attrs: {
-                  href: !btn.confirm ? btn.url : "javascript:void(0)",
-                  disabled: Boolean(btn.disabled)
-                },
-                on: {
-                  click: function($event) {
-                    $event.stopPropagation()
-                    btn.confirm ? _vm.pleaseConfirm(key) : null
-                  }
-                }
-              },
-              [
-                _vm._v(
-                  "\n\n            " + _vm._s(btn.label) + " \n            "
-                ),
-                btn.pill
-                  ? _c(
-                      "span",
-                      {
-                        staticClass:
-                          "badge badge-pill badge-danger align-middle"
-                      },
-                      [_vm._v(_vm._s(btn.pill))]
-                    )
-                  : _vm._e()
-              ]
-            )
-          })
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _vm._l(_vm.buttons, function(btn, key) {
-        return _c(
-          "div",
-          { key: key },
-          [
-            btn.confirm
-              ? _c(
-                  "b-modal",
-                  {
-                    ref: "confirm" + key,
-                    refInFor: true,
-                    staticClass: "text-left",
-                    attrs: { title: "Please confirm", busy: false },
-                    on: {
-                      ok: function($event) {
-                        _vm.handleOk(btn.url)
-                      }
-                    }
-                  },
-                  [_c("p", [_vm._v(_vm._s(btn.confirm))])]
-                )
-              : _vm._e()
-          ],
-          1
-        )
-      })
-    ],
-    2
   )
 }
 var staticRenderFns = []
@@ -58383,7 +58172,6 @@ var map = {
 	"./components/WysywigEditor.vue": "./resources/js/components/WysywigEditor.vue",
 	"./components/buttons/DeleteBtn.vue": "./resources/js/components/buttons/DeleteBtn.vue",
 	"./components/buttons/GenericBtn.vue": "./resources/js/components/buttons/GenericBtn.vue",
-	"./components/buttons/GroupBtn.vue": "./resources/js/components/buttons/GroupBtn.vue",
 	"./components/buttons/ToggleBtn.vue": "./resources/js/components/buttons/ToggleBtn.vue",
 	"./components/templates/CallToAction16.vue": "./resources/js/components/templates/CallToAction16.vue"
 };
@@ -59186,75 +58974,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GenericBtn_vue_vue_type_template_id_7ea5c87e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GenericBtn_vue_vue_type_template_id_7ea5c87e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/buttons/GroupBtn.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/buttons/GroupBtn.vue ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _GroupBtn_vue_vue_type_template_id_2bae3316___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GroupBtn.vue?vue&type=template&id=2bae3316& */ "./resources/js/components/buttons/GroupBtn.vue?vue&type=template&id=2bae3316&");
-/* harmony import */ var _GroupBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GroupBtn.vue?vue&type=script&lang=js& */ "./resources/js/components/buttons/GroupBtn.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _GroupBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _GroupBtn_vue_vue_type_template_id_2bae3316___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _GroupBtn_vue_vue_type_template_id_2bae3316___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/buttons/GroupBtn.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/buttons/GroupBtn.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/buttons/GroupBtn.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./GroupBtn.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/buttons/GroupBtn.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/buttons/GroupBtn.vue?vue&type=template&id=2bae3316&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/buttons/GroupBtn.vue?vue&type=template&id=2bae3316& ***!
-  \*************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupBtn_vue_vue_type_template_id_2bae3316___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./GroupBtn.vue?vue&type=template&id=2bae3316& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/buttons/GroupBtn.vue?vue&type=template&id=2bae3316&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupBtn_vue_vue_type_template_id_2bae3316___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GroupBtn_vue_vue_type_template_id_2bae3316___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

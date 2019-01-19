@@ -37,13 +37,7 @@ class PagesController extends ResourceController
         ],
         'settings' => [
             ['type' => 'switch'],
-            [
-                'type' => 'custom',
-                'route' => 'sections.index',
-                'icon' => 'fa-fw fas fa-bars',
-                'variant' => 'info',
-                'title' => 'View Sections'
-            ],
+            ['type' => 'children', 'title' => 'View Sections', 'url' => 'sections'],
             ['type' => 'edit'],
             ['type' => 'delete'],
         ]

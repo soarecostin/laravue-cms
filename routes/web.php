@@ -41,7 +41,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/pages/{page}/sections/draw', 'Admin\PageSectionsController@draw')->name('admin.pages.sections.draw');
         Route::get('/pages/sections/{pageSection}/publish', 'Admin\PageSectionsController@on')->name('admin.pages.sections.publish');
         Route::get('/pages/sections/{pageSection}/unpublish', 'Admin\PageSectionsController@off')->name('admin.pages.sections.unpublish');
-        Route::post('/pages/sections/{pageSection}/save-order', 'Admin\PageSectionsController@saveOrder')->name('admin.pages.sections.saveOrder');
+        Route::post('/pages/{page}/sections/save-order', 'Admin\PageSectionsController@saveOrder')->name('admin.pages.sections.saveOrder');
         
         Route::get('/pages/{page}/sections', 'Admin\PageSectionsController@index')->name('admin.pages.sections.index');
         Route::get('/pages/{page}/sections/create', 'Admin\PageSectionsController@create')->name('admin.pages.sections.create');

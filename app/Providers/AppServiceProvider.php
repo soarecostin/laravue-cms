@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        $this->viewComposers($request);
+        $this->viewComposers();
         $this->registerBladeComponents();
         $this->explicitRouteBindings();
     }
@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
         //
     }
     
-    protected function viewComposers(Request $request)
+    protected function viewComposers()
     {
         view()->composer('admin.layouts.app', function($view) {
             $nav = config('admin.nav');

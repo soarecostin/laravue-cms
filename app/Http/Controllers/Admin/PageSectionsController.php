@@ -115,19 +115,16 @@ class PageSectionsController extends ResourceController
         });
 
         return response()->json($itemsVue);
-        $datatable = DatatablesService::draw($entities, $this->settings, $this->datatables);
-        
-        return $datatable->make(true);
     }
     
-    public function saveOrder(PageSection $entity, Request $request)
+    public function saveOrder(Page $page, Request $request)
     {
         if ($request->has('items')) {
             $items = json_decode($request->input('items'));
 
             foreach ($items as $item) {
                 PageSection::updateOrCreate(
-                    ['id' => $item->id],
+                    ['id' => $item->id, 'page_id' => $page->id],
                     ['sort_order' => $item->sort_order]
                 );
             }

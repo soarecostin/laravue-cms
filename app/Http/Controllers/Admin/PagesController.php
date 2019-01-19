@@ -30,13 +30,13 @@ class PagesController extends ResourceController
     protected $datatables = [
         'order' => true,
         'fields' => [
-            [ 'key' => 'id', 'sortable' => false ],
-            [ 'key' => 'title', 'sortable' => false ],
-            [ 'key' => 'url', 'sortable' => false ],
-            [ 'key' => 'settings', 'sortable' => false, 'tdClass' => 'w-25' ],    
+            ['key' => 'id', 'sortable' => false],
+            ['key' => 'title', 'sortable' => false],
+            ['key' => 'url', 'sortable' => false],
+            ['key' => 'settings', 'sortable' => false, 'tdClass' => 'w-25'],    
         ],
         'settings' => [
-            [ 'type' => 'switch' ],
+            ['type' => 'switch'],
             [
                 'type' => 'custom',
                 'route' => 'sections.index',
@@ -44,8 +44,8 @@ class PagesController extends ResourceController
                 'variant' => 'info',
                 'title' => 'View Sections'
             ],
-            [ 'type' => 'edit' ],
-            [ 'type' => 'delete' ],
+            ['type' => 'edit'],
+            ['type' => 'delete'],
         ]
     ];
 

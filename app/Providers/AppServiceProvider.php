@@ -6,6 +6,7 @@ use App\Menu;
 use App\MenuItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
@@ -71,12 +72,10 @@ class AppServiceProvider extends ServiceProvider
     
     protected function filterDeniedItems($nav, $guard) {
         
-        if (!Auth::guard($guard)->check()) {
+        if (!Auth::guard($guard)->check() || empty($nav)) {
             return [];
         }
-        if (empty($nav)) {
-            return $nav;
-        }
+        
         foreach ($nav as $navKey => $navItem) {
             if (empty($navItem['gates'])) {
                 continue;

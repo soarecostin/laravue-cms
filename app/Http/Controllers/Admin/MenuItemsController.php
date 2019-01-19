@@ -52,7 +52,7 @@ class MenuItemsController extends ResourceController
                 $menuId = $entity->menu->id;
             }
         }
-        if ($menuId != null) {
+        if ($menuId !== null) {
             $rootMenuItems = MenuItem::select('id', 'title')
                                 ->where('parent_id', NULL)
                                 ->where('menu_id', $menuId)

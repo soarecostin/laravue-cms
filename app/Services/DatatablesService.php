@@ -142,8 +142,6 @@ class DatatablesService
 
                     $buttons[] = $data;
                 break;
-                default:
-                break;
             }
         }
 

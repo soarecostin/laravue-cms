@@ -10646,6 +10646,18 @@ body.novars .navbar-custom {
   }
 }
 
+.navbar-custom .navbar-brand h1 {
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1px;
+  font-size: 1.75rem;
+  color: var(--main-color);
+}
+
+body.novars .navbar-custom .navbar-brand h1 {
+  color: #242939;
+}
+
 .navbar-custom .navbar-brand img {
   width: auto;
   max-width: 220px;

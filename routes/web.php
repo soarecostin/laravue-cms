@@ -16,7 +16,7 @@ Route::prefix('admin')->group(function () {
     // Authentication Routes
     Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('login', 'Admin\Auth\LoginController@login');
-    Route::post('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
+    Route::get('logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
     
     // Restricted access to admin control panel to logged in admins only
     Route::middleware(['auth:admin'])->group(function () {
@@ -83,7 +83,7 @@ Route::prefix('user')->group(function () {
     // Authentication Routes...
     Route::get('login', 'User\Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'User\Auth\LoginController@login');
-    Route::post('logout', 'User\Auth\LoginController@logout')->name('logout');
+    Route::get('logout', 'User\Auth\LoginController@logout')->name('logout');
 
     // Registration Routes...
     Route::get('register', 'User\Auth\RegisterController@showRegistrationForm')->name('register');

@@ -14,11 +14,13 @@ class PageSectionsTableSeeder extends Seeder
         App\PageSection::create([
             'title' => 'Header CTA',
             'page_id' => 1,
-            'section_id' => 2,
+            'section_id' => 4,
             'template_data' => json_encode([
-                'tpl_title' => 'A CMS built with Laravel and Vue, using Bootstrap and Froala Blocks.',
+                'tpl_title' => 'Laravue CMS',
+                'tpl_subtitle' => 'A CMS built with Laravel and Vue, using Bootstrap and Froala Blocks.',
                 'tpl_image' => 'purple',
-                'tpl_btn_label' => 'View on Github',
+                'tpl_icon' => 'coffee',
+                'tpl_btn_label' => 'Star on Github',
                 'tpl_btn_url' => 'https://github.com/soarecostin/laravue-cms'
             ]),
             'sort_order' => 1,
@@ -43,5 +45,6 @@ class PageSectionsTableSeeder extends Seeder
             'sort_order' => 2,
             'published' => 1
         ]);
+        
     }
 }

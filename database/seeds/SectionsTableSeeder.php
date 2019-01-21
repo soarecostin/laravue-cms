@@ -11,6 +11,32 @@ class SectionsTableSeeder extends Seeder
      */
     public function run()
     {
+        $heroBackgrounds = [
+            [
+                'id' => 'blue',
+                'name' =>'Blue'
+            ],
+            [
+                'id' => 'purple',
+                'name' => 'Purple'
+            ],
+            [
+                'id' => 'red',
+                'name' => 'Red'
+            ],
+            [
+                'id' => 'yellow',
+                'name' => 'Yellow'
+            ],
+        ];
+
+        $icons = [
+            [
+                'id' => 'coffee',
+                'name' => 'Coffee'
+            ],
+        ];
+
         App\Section::create([
             'id' => 1,
             'section_type_name' => 'contents',
@@ -44,24 +70,7 @@ class SectionsTableSeeder extends Seeder
                         'model' => 'tpl_image',
                         'inputName' => 'tpl_image',
                         'default' => 'blue',
-                        'values' => [
-                            [
-                                'id' => 'blue',
-                                'name' =>'Blue'
-                            ],
-                            [
-                                'id' => 'purple',
-                                'name' => 'Purple'
-                            ],
-                            [
-                                'id' => 'red',
-                                'name' => 'Red'
-                            ],
-                            [
-                                'id' => 'yellow',
-                                'name' => 'Yellow'
-                            ],
-                        ]
+                        'values' => $heroBackgrounds
                     ],
                     [
                         'type' => 'input',
@@ -195,6 +204,70 @@ class SectionsTableSeeder extends Seeder
                             ],
                         ]
                     ],
+                ]
+            ]),
+        ]);
+
+        App\Section::create([
+            'id' => 4,
+            'section_type_name' => 'cta',
+            'title' => 'Call to action 13',
+            'thumbnail' => '/img/blocks/cta-13.png',
+            'template_name' => 'call-to-action-13',
+            'fields' => json_encode([
+                'fields' => [
+                    [
+                        'type' => 'select',
+                        'label' => 'Icon',
+                        'model' => 'tpl_icon',
+                        'inputName' => 'tpl_icon',
+                        'default' => 'coffee',
+                        'values' => $icons
+                    ],
+                    [
+                        'type' => 'input',
+                        'inputType' => 'text',
+                        'label' => 'Title',
+                        'model' => 'tpl_title',
+                        'required' => true,
+                        'inputName' => 'tpl_title',
+                        'placeholder' => 'Title'
+                    ],
+                    [
+                        'type' => 'input',
+                        'inputType' => 'text',
+                        'label' => 'Subtitle',
+                        'model' => 'tpl_subtitle',
+                        'required' => true,
+                        'inputName' => 'tpl_subtitle',
+                        'placeholder' => 'Subtitle'
+                    ],
+                    [
+                        'type' => 'select',
+                        'label' => 'Image',
+                        'model' => 'tpl_image',
+                        'inputName' => 'tpl_image',
+                        'default' => 'blue',
+                        'values' => $heroBackgrounds
+                    ],
+                    [
+                        'type' => 'input',
+                        'inputType' => 'text',
+                        'label' => 'Button label',
+                        'model' => 'tpl_btn_label',
+                        'required' => true,
+                        'inputName' => 'tpl_btn_label',
+                        'placeholder' => 'Button text'
+                    ],
+                    [
+                        'type' => 'input',
+                        'inputType' => 'text',
+                        'label' => 'Button link',
+                        'model' => 'tpl_btn_url',
+                        'required' => true,
+                        'inputName' => 'tpl_btn_url',
+                        'placeholder' => '#'
+                    ]
                 ]
             ]),
         ]);

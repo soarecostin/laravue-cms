@@ -428,8 +428,8 @@ h6,
 }
 
 .lead {
-  font-size: 1.4rem;
-  font-weight: 400;
+  font-size: 1.125rem;
+  font-weight: 300;
 }
 
 .display-1 {
@@ -11136,11 +11136,6 @@ body.novars .footer .additional-links a:hover {
   }
 }
 
-p {
-  color: #8892a0;
-  font-weight: 400;
-}
-
 .fdb-block {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -11162,6 +11157,16 @@ p {
 
 .fdb-block .container.bg-r {
   background-position: right;
+}
+
+.fdb-block p {
+  color: #8892a0;
+  font-weight: 400;
+}
+
+.fdb-block p.lead {
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .fdb-block.fdb-viewport {

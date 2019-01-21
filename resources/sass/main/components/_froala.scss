@@ -1,7 +1,8 @@
-p {
-    color: $paragraph-font-color;
-    font-weight: $paragraph-font-weight;
-}
+$lead-font-size: 1.4rem;
+$lead-font-weight: 400;
+
+$paragraph-font-color: #8892a0;
+$paragraph-font-weight: 400;
 
 .fdb-block {
     @include font-smoothing(true);
@@ -22,6 +23,16 @@ p {
         &.bg-r {
             background-position: right;
         }
+    }
+    
+    p {
+        color: $paragraph-font-color;
+        font-weight: $paragraph-font-weight;
+    }
+    
+    p.lead {
+        font-size: $lead-font-size;
+        font-weight: $lead-font-weight;
     }
 
     &.fdb-viewport {

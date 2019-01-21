@@ -64,7 +64,7 @@ class PageSectionsTableSeeder extends Seeder
                 'tpl_content_2' => 'Right at the coast of the Semantics, a large language ocean. A small river named Dude a rge language ocean there live the blind.',
                 'tpl_btn_label_2' => 'Read more',
                 'tpl_btn_url_2' => '#',
-                'tpl_image' => 'tabs',
+                'tpl_image' => 'ipad-report',
             ]),
             'sort_order' => $nextSortIndex++,
             'published' => 1

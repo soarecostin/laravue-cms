@@ -42,7 +42,7 @@ export default {
     props: ['dbSectionTypes', 'dbSections', 'dbSelectedSectionId', 'dbContent', 'dbTemplateData'],
     data() {
         return {
-            selectedSectionType: 'headers',
+            selectedSectionType: 'cta',
             sectionTypes: this.dbSectionTypes,
             sections: this.dbSections,
             

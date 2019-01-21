@@ -216,15 +216,14 @@ class SectionsTableSeeder extends Seeder
 
     public function contents()
     {
-        App\Section::create([
-            'section_type_name' => 'contents',
-            'title' => 'Custom (HTML/Content)',
-            'desc' => 'Build your own, custom section type',
-            'thumbnail' => '/img/blocks/custom-html-thumb.png',
-            'template_name' => '',
-            'fields' => '',
-        ]);
-
+        // App\Section::create([
+        //     'section_type_name' => 'contents',
+        //     'title' => 'Custom (HTML/Content)',
+        //     'desc' => 'Build your own, custom section type',
+        //     'thumbnail' => '/img/blocks/custom-html-thumb.png',
+        //     'template_name' => '',
+        //     'fields' => '',
+        // ]);
         
         App\Section::create([
             'section_type_name' => 'contents',
@@ -331,6 +330,11 @@ class SectionsTableSeeder extends Seeder
                                         'id' => 'opened',
                                         'name' =>'Opened Mail'
                                     ],
+                                    [
+                                        'id' => 'ipad-report',
+                                        'name' =>'Ipad Report'
+                                    ],
+                                    
                                 ]
                             ],
                         ]
@@ -343,7 +347,7 @@ class SectionsTableSeeder extends Seeder
     public function features()
     {
         App\Section::create([
-            'section_type_name' => 'contents',
+            'section_type_name' => 'features',
             'title' => 'Feature 9',
             'thumbnail' => '/img/blocks/feature-9.png',
             'template_name' => 'feature-9',

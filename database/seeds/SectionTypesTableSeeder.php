@@ -12,13 +12,8 @@ class SectionTypesTableSeeder extends Seeder
     public function run()
     {
         App\SectionType::create([
-            'name' => 'headers',
-            'label' => 'Headers',
-        ]);
-        
-        App\SectionType::create([
-            'name' => 'contents',
-            'label' => 'Contents',
+            'name' => 'cta',
+            'label' => 'Call to action',
         ]);
         
         App\SectionType::create([
@@ -27,18 +22,18 @@ class SectionTypesTableSeeder extends Seeder
         ]);
         
         App\SectionType::create([
-            'name' => 'cta',
-            'label' => 'Call to action',
-        ]);
-
-        App\SectionType::create([
-            'name' => 'teams',
-            'label' => 'Teams',
+            'name' => 'contents',
+            'label' => 'Contents',
         ]);
         
-        App\SectionType::create([
-            'name' => 'testimonials',
-            'label' => 'Testimonials',
-        ]);
+        // App\SectionType::create([
+        //     'name' => 'teams',
+        //     'label' => 'Teams',
+        // ]);
+        
+        // App\SectionType::create([
+        //     'name' => 'testimonials',
+        //     'label' => 'Testimonials',
+        // ]);
     }
 }

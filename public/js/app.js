@@ -1915,7 +1915,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['dbSectionTypes', 'dbSections', 'dbSelectedSectionId', 'dbContent', 'dbTemplateData'],
   data: function data() {
     return {
-      selectedSectionType: 'headers',
+      selectedSectionType: 'cta',
       sectionTypes: this.dbSectionTypes,
       sections: this.dbSections,
       selectedSectionId: this.dbSelectedSectionId

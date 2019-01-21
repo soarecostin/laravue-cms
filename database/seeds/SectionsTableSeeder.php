@@ -23,10 +23,69 @@ class SectionsTableSeeder extends Seeder
         ],
     ];
 
-    protected $icons = [
+    protected $ctaIcons = [
         [
             'id' => 'coffee',
             'name' => 'Coffee'
+        ],
+        [
+            'id' => 'navigation',
+            'name' => 'Navigation'
+        ],
+        [
+            'id' => 'mail',
+            'name' => 'Mail'
+        ],
+        [
+            'id' => 'phone',
+            'name' => 'Phone'
+        ],
+    ];
+
+    protected $featuresIcons = [
+        [
+            'id' => 'github',
+            'name' => 'Github',
+        ],
+        [
+            'id' => 'layers',
+            'name' => 'Layers'
+        ],
+        [
+            'id' => 'gift',
+            'name' => 'Gift'
+        ],
+        [
+            'id' => 'cloud',
+            'name' => 'Cloud'
+        ],
+        [
+            'id' => 'map',
+            'name' => 'Map'
+        ],
+        [
+            'id' => 'map-pin',
+            'name' => 'Map Pin'
+        ],
+        [
+            'id' => 'life-buoy',
+            'name' => 'Life Saver'
+        ],
+        [
+            'id' => 'layout',
+            'name' => 'Layout'
+        ],
+        [
+            'id' => 'monitor',
+            'name' => 'Monitor'
+        ],
+        [
+            'id' => 'package',
+            'name' => 'Package'
+        ],
+        [
+            'id' => 'compass',
+            'name' => 'Compass'
         ],
     ];
 
@@ -103,8 +162,8 @@ class SectionsTableSeeder extends Seeder
                         'label' => 'Icon',
                         'model' => 'tpl_icon',
                         'inputName' => 'tpl_icon',
-                        'default' => 'coffee',
-                        'values' => $this->icons
+                        'default' => 'github',
+                        'values' => $this->ctaIcons
                     ],
                     [
                         'type' => 'input',
@@ -283,5 +342,119 @@ class SectionsTableSeeder extends Seeder
 
     public function features()
     {
+        App\Section::create([
+            'section_type_name' => 'contents',
+            'title' => 'Feature 9',
+            'thumbnail' => '/img/blocks/feature-9.png',
+            'template_name' => 'feature-9',
+            'fields' => json_encode([
+                'groups' => [
+                    [
+                        'legend' => "Main title",
+                        'fields' => [
+                            [
+                                'type' => 'input',
+                                'inputType' => 'text',
+                                'label' => 'Main title',
+                                'model' => 'tpl_title',
+                                'required' => true,
+                                'inputName' => 'tpl_title',
+                                'placeholder' => 'Title'
+                            ],
+                        ]
+                    ],
+                    [
+                        'legend' => "Feature #1",
+                        'fields' => [
+                            [
+                                'type' => 'input',
+                                'inputType' => 'text',
+                                'label' => 'Title #1',
+                                'model' => 'tpl_feature_title_1',
+                                'required' => true,
+                                'inputName' => 'tpl_feature_title_1',
+                                'placeholder' => 'Title'
+                            ],
+                            [
+                                'type' => 'textArea',
+                                'label' => 'Description #1',
+                                'model' => 'tpl_feature_desc_1',
+                                'required' => true,
+                                'inputName' => 'tpl_feature_desc_1',
+                                'placeholder' => 'Description'
+                            ],
+                            [
+                                'type' => 'select',
+                                'label' => 'Icon',
+                                'model' => 'tpl_feature_icon_1',
+                                'inputName' => 'tpl_feature_icon_1',
+                                'default' => 'layers',
+                                'values' => $this->featuresIcons
+                            ],
+                        ]
+                    ],
+                    [
+                        'legend' => "Feature #2",
+                        'fields' => [
+                            [
+                                'type' => 'input',
+                                'inputType' => 'text',
+                                'label' => 'Title #2',
+                                'model' => 'tpl_feature_title_2',
+                                'required' => true,
+                                'inputName' => 'tpl_feature_title_2',
+                                'placeholder' => 'Title'
+                            ],
+                            [
+                                'type' => 'textArea',
+                                'label' => 'Description #2',
+                                'model' => 'tpl_feature_desc_2',
+                                'required' => true,
+                                'inputName' => 'tpl_feature_desc_2',
+                                'placeholder' => 'Description'
+                            ],
+                            [
+                                'type' => 'select',
+                                'label' => 'Icon',
+                                'model' => 'tpl_feature_icon_2',
+                                'inputName' => 'tpl_feature_icon_2',
+                                'default' => 'gift',
+                                'values' => $this->featuresIcons
+                            ],
+                        ]
+                    ],
+                    [
+                        'legend' => "Feature #3",
+                        'fields' => [
+                            [
+                                'type' => 'input',
+                                'inputType' => 'text',
+                                'label' => 'Title #3',
+                                'model' => 'tpl_feature_title_3',
+                                'required' => true,
+                                'inputName' => 'tpl_feature_title_3',
+                                'placeholder' => 'Title'
+                            ],
+                            [
+                                'type' => 'textArea',
+                                'label' => 'Description #3',
+                                'model' => 'tpl_feature_desc_3',
+                                'required' => true,
+                                'inputName' => 'tpl_feature_desc_3',
+                                'placeholder' => 'Description'
+                            ],
+                            [
+                                'type' => 'select',
+                                'label' => 'Icon',
+                                'model' => 'tpl_feature_icon_3',
+                                'inputName' => 'tpl_feature_icon_3',
+                                'default' => 'cloud',
+                                'values' => $this->featuresIcons
+                            ],
+                        ]
+                    ],
+                ]
+            ]),
+        ]);
     }
 }

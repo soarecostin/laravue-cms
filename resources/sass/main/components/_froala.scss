@@ -1,9 +1,7 @@
-// Block
-$block-padding: 7.5rem;
-$white: #ffffff;
-$black: #000000;
-$font-color: #444444;
-$box-shadow: 0 0.3125rem 0.875rem 0 rgba(129, 129, 129, .20);
+p {
+    color: $paragraph-font-color;
+    font-weight: $paragraph-font-weight;
+}
 
 .fdb-block {
     @include font-smoothing(true);

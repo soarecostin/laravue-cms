@@ -5,7 +5,7 @@
             <div class="col-12 col-md-10 col-lg-8">
                 <h1>{{ tpl_title }}</h1>
                 <p class="mt-5">
-                    <a :href="tpl_btn_url" class="btn btn-outline-light">{{ tpl_btn_label }}</a>
+                    <a :href="tpl_btn_url" class="btn btn-dark">{{ tpl_btn_label }}</a>
                 </p>
             </div>
             </div>

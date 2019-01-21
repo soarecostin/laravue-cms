@@ -12,11 +12,35 @@ class PageSectionsTableSeeder extends Seeder
     public function run()
     {
         App\PageSection::create([
-            'title' => 'Hompage Test Section',
+            'title' => 'Header CTA',
             'page_id' => 1,
-            'section_id' => 1,
-            'content' => '<h1>Html content here</h1>',
-            'sort_order' => 3,
+            'section_id' => 2,
+            'template_data' => json_encode([
+                'tpl_title' => 'A CMS built with Laravel and Vue, using Bootstrap and Froala Blocks.',
+                'tpl_image' => 'purple',
+                'tpl_btn_label' => 'View on Github',
+                'tpl_btn_url' => 'https://github.com/soarecostin/laravue-cms'
+            ]),
+            'sort_order' => 1,
+            'published' => 1
+        ]);
+
+        App\PageSection::create([
+            'title' => 'Content block',
+            'page_id' => 1,
+            'section_id' => 3,
+            'template_data' => json_encode([
+                'tpl_title_1' => 'Your Website',
+                'tpl_content_1' => 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
+                'tpl_btn_label_1' => 'Read more',
+                'tpl_btn_url_1' => '#',
+                'tpl_title_2' => 'Amazing Design',
+                'tpl_content_2' => 'Right at the coast of the Semantics, a large language ocean. A small river named Dude a rge language ocean there live the blind.',
+                'tpl_btn_label_2' => 'Read more',
+                'tpl_btn_url_2' => '#',
+                'tpl_image' => 'tabs',
+            ]),
+            'sort_order' => 2,
             'published' => 1
         ]);
     }

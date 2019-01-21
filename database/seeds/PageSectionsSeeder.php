@@ -14,7 +14,7 @@ class PageSectionsTableSeeder extends Seeder
         App\PageSection::create([
             'title' => 'Header CTA',
             'page_id' => 1,
-            'section_id' => 4,
+            'section_id' => App\Section::where('template_name', 'call-to-action-13')->first()->id,
             'template_data' => json_encode([
                 'tpl_title' => 'Laravue CMS',
                 'tpl_subtitle' => 'A CMS built with Laravel and Vue, using Bootstrap and Froala Blocks.',
@@ -30,7 +30,7 @@ class PageSectionsTableSeeder extends Seeder
         App\PageSection::create([
             'title' => 'Content block',
             'page_id' => 1,
-            'section_id' => 3,
+            'section_id' => App\Section::where('template_name', 'content-31')->first()->id,
             'template_data' => json_encode([
                 'tpl_title_1' => 'Your Website',
                 'tpl_content_1' => 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
